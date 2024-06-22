@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    --backcloth: #000000;
+    --background: #0A000C;
+
+    --text: #f4f4f4;
+    --text-accent: #ffffff;
+
+    --primary: #561498;
+    --secondary: #bf3ba3;
+}
+
+:root[data-theme="light"] {
+    --backcloth: #ffffff;
+    --background: #f4f4f4;
+
+    --text: #0A000C;
+    --text-accent: #000000;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    color: var(--text);
+    
+    background: var(--backcloth);
+    background: radial-gradient(circle, var(--primary) 0%, var(--backcloth) 100%);
+    
+    
+    :root[data-theme="light"] & {
+        background: radial-gradient(circle, var(--backcloth) 10%, var(--primary) 100%);
+    }
+
+    font-family: "Balsamiq Sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

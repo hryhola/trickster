@@ -1,0 +1,55 @@
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+.dropdown {
+    position: relative;
+    
+    &_current {
+        cursor: pointer;
+        transition: 0.1s;
+    
+        filter: drop-shadow(0 0 6px var(--background));
+        svg {
+            filter: drop-shadow(0 0 2px var(--background));
+        }
+
+        &:hover {
+            filter: drop-shadow(0 0 6px var(--secondary));
+            svg {
+                filter: drop-shadow(0 0 2px var(--secondary));
+            }
+        }
+    }
+
+    &[data-is-open="true"] &_current svg {
+        animation-name: spin;
+        animation-duration: 1000ms;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear; 
+    }
+
+    &_options {
+        display: none;
+    }
+
+    &[data-is-open="true"] &_options {
+        display: block;
+        position: absolute;
+    }
+
+    &_option {
+        cursor: pointer;
+
+        transition: 0.15s;
+
+        &:hover {
+            color: var(--secondary)
+        }
+    }
+}
