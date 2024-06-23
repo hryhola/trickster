@@ -5,12 +5,14 @@ import reportWebVitals from './reportWebVitals';
 import { HomePage } from './pages/home/Home'; 
 
 import './ui/global.scss';
+import { AnimatedBackground } from './ui/layout/animated-background/AnimatedBackground';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
+    <AnimatedBackground type='stars' />
     <HomePage />
   </React.StrictMode>
 );

@@ -8,7 +8,10 @@
     --text-accent: #ffffff;
 
     --primary: #561498;
+    --primary-rgb: 86, 20, 152;
     --secondary: #bf3ba3;
+
+    z-index: 2;
 }
 
 :root[data-theme="light"] {
