@@ -1,4 +1,5 @@
-import { Dropdown } from '../../ui/inputs/dropdown/Dropdown'
+import { FontChanger } from '../../ui/settings/font-changer/FontChanger'
+import { ThemeChanger } from '../../ui/settings/theme-changer/ThemeChanger'
 import styles from './home.page.module.scss'
 
 export const HomePage = () => {
@@ -6,15 +7,8 @@ export const HomePage = () => {
     <div className={styles['home-page']}>
       Hello, world!
 
-      <Dropdown
-        options={[
-          { id: 'dark', displayValue: 'Dark' },
-          { id: 'light', displayValue: 'Light' }
-        ]}
-        onSelect={(id) => {
-          document.documentElement.dataset.theme = id
-        }}
-      />
+      <ThemeChanger />
+      <FontChanger />
     </div>
   )
 }
