@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/trickster/static/css/main.11678ccd.css",
-    "main.js": "/trickster/static/js/main.5faaf7fc.js",
+    "main.css": "/trickster/static/css/main.5ec0cc72.css",
+    "main.js": "/trickster/static/js/main.050248ad.js",
     "static/js/453.3d19db86.chunk.js": "/trickster/static/js/453.3d19db86.chunk.js",
     "index.html": "/trickster/index.html",
-    "main.11678ccd.css.map": "/trickster/static/css/main.11678ccd.css.map",
-    "main.5faaf7fc.js.map": "/trickster/static/js/main.5faaf7fc.js.map",
+    "main.5ec0cc72.css.map": "/trickster/static/css/main.5ec0cc72.css.map",
+    "main.050248ad.js.map": "/trickster/static/js/main.050248ad.js.map",
     "453.3d19db86.chunk.js.map": "/trickster/static/js/453.3d19db86.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.11678ccd.css",
-    "static/js/main.5faaf7fc.js"
+    "static/css/main.5ec0cc72.css",
+    "static/js/main.050248ad.js"
   ]
 }
