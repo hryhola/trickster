@@ -20,11 +20,18 @@
     --text-accent: #000000;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
 
     color: var(--text);
+
+    height: 100vh;
+    width: 100vw;
     
     background: var(--backcloth);
     background: radial-gradient(circle, var(--primary) 0%, var(--backcloth) 100%);

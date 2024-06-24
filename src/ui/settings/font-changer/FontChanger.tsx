@@ -2,13 +2,14 @@ import { useEffect, useState } from "react"
 import { Dropdown } from "../../inputs/dropdown/Dropdown"
 import WebFont from 'webfontloader'
 
-type FontType = 'normal' | 'silly' | 'retro' | 'fancy';
+type FontType = 'normal' | 'silly' | 'retro' | 'fancy' | 'orthodox'
 
 const MAPPING: Record<FontType, string> = {
     normal: 'Inter',
     retro: 'Handjet',
     silly: 'Balsamiq Sans',
-    fancy: 'Gabriela'
+    fancy: 'Gabriela',
+    orthodox: 'UstavHand'
 }
 
 export const FontChanger = () => {
@@ -17,11 +18,20 @@ export const FontChanger = () => {
     useEffect(() => {
         const fontName= MAPPING[current];
 
-        WebFont.load({
-            google: {
-                families: [fontName]
-            }
-        });
+        if (current === 'orthodox') {
+            WebFont.load({
+                custom: {
+                    families: [fontName],
+                    urls: ['/trickster/fonts/fonts.css']
+                  }
+            });
+        } else {
+            WebFont.load({
+                google: {
+                    families: [fontName]
+                }
+            });
+        }
 
         document.documentElement.style.fontFamily = fontName;
 
@@ -37,7 +47,8 @@ export const FontChanger = () => {
             { id: 'silly', displayValue: 'Silly' },
             { id: 'normal', displayValue: 'Normal' },
             { id: 'retro', displayValue: 'Retro' },
-            { id: 'fancy', displayValue: 'Fancy' }
+            { id: 'fancy', displayValue: 'Fancy' },
+            { id: 'orthodox', displayValue: 'Orthodox' }
         ]}
         onSelect={(id) => {
             setCurrent(id as FontType);

@@ -19,6 +19,7 @@ export const Dropdown = (props: DropdownProps) => {
 
     useEffect(() => {
         if (props.onSelect) props.onSelect(selectedId)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedId])
 
     const selectedOption = props.options.find(o => o.id === selectedId)
