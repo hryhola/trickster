@@ -8,8 +8,12 @@
 }
 
 .dropdown {
-    position: relative;
-    
+    white-space: nowrap;
+
+    &[data-align="right"] {
+        text-align: right;
+    }
+
     &_current {
         cursor: pointer;
         transition: 0.1s;
@@ -27,6 +31,11 @@
         }
     }
 
+    &[data-is-open="true"] &_current {
+        opacity: 0.5;
+        cursor: default;
+    }
+
     &[data-is-open="true"] &_current svg {
         animation-name: spin;
         animation-duration: 1000ms;
@@ -34,16 +43,28 @@
         animation-timing-function: linear; 
     }
 
-    &_options {
-        display: none;
+    &_options_wrapper {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.2s ease-out;
+
     }
 
-    &[data-is-open="true"] &_options {
-        display: block;
-        position: absolute;
+    &[data-align="right"] &_options_wrapper {
+        justify-content: end;
+    }
+
+    &[data-is-open="true"] &_options_wrapper {
+        grid-template-rows: 1fr;
+    }
+
+    &_options {
+        overflow: hidden;
     }
 
     &_option {
+        
+
         cursor: pointer;
 
         transition: 0.15s;

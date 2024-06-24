@@ -40,9 +40,17 @@ export const FontChanger = () => {
         } else {
             document.documentElement.style.fontSize = '';
         }
+
+        if (current === 'orthodox') {
+            document.documentElement.style.lineHeight = '1.6em'
+        } else {
+            document.documentElement.style.lineHeight = ''
+        }
     }, [current]);
 
     return <Dropdown
+        label="Font:"
+        align="right"
         options={[
             { id: 'silly', displayValue: 'Silly' },
             { id: 'normal', displayValue: 'Normal' },

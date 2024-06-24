@@ -4,6 +4,8 @@ import { DownArrow } from '../../svg/DownArrow';
 import { useOutsideClick } from '../../hooks/useOutsideClick';
 
 export interface DropdownProps {
+    label?: string
+    align?: 'right'
     options: { id: string; displayValue: string }[],
     onSelect?: (id: string) => void
 }
@@ -37,11 +39,15 @@ export const Dropdown = (props: DropdownProps) => {
         setIsOpen(false);
     }
 
-    return <div className={styles.dropdown} data-is-open={isOpen} ref={ref}>
+
+    return <div className={styles.dropdown} data-is-open={isOpen} data-align={props.align || 'left'} ref={ref}>
         <div className={styles.dropdown_current} onClick={() => setIsOpen((prev) => !prev)}>
-            {selectedOption.displayValue} <DownArrow width='11px' height='11px' fill='var(--text)' />
+            {props.align === 'right' ? (<><DownArrow width='11px' height='11px' fill='var(--text)' />&nbsp;</>) : ''}
+            {props.label ? props.label + ' ' : ''}{selectedOption.displayValue}
+            {props.align !== 'right' ? (<>&nbsp;<DownArrow width='11px' height='11px' fill='var(--text)' /></>) : ''}
         </div>
-        <div className={styles.dropdown_options}>
+        <div className={styles.dropdown_options_wrapper}>
+            <div className={styles.dropdown_options}>
             {props.options.map(o => <div
                 key={o.id}
                 className={styles.dropdown_option}
@@ -51,6 +57,7 @@ export const Dropdown = (props: DropdownProps) => {
                     {o.displayValue}
                 </div>
             )}
+            </div>
         </div>
     </div>
 }

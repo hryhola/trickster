@@ -20,6 +20,18 @@
     --text-accent: #000000;
 }
 
+::-moz-selection {
+    /* Code for Firefox */
+    background: var(--secondary);
+}
+
+::selection {
+    background: var(--secondary);
+}
+
+:root[data-theme="light"] ::-moz-selection { color: var(--backcloth) }
+:root[data-theme="light"] ::selection { color: var(--backcloth) }
+
 * {
     box-sizing: border-box;
 }
@@ -32,11 +44,11 @@ body {
 
     height: 100vh;
     width: 100vw;
-    
+
     background: var(--backcloth);
     background: radial-gradient(circle, var(--primary) 0%, var(--backcloth) 100%);
-    
-    
+
+
     :root[data-theme="light"] & {
         background: radial-gradient(circle, var(--backcloth) 10%, var(--primary) 100%);
     }
