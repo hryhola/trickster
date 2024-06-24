@@ -52,7 +52,15 @@ export const StarsBackground: React.FC = () => {
 
         const putPixel = (x: number, y: number, brightness: number) => {
             const intensity = brightness * 255;
-            const rgb = "rgb(" + intensity + "," + intensity + "," + intensity + ")";
+            let rgb = "rgb(" + intensity + "," + intensity + "," + intensity + ")";
+
+            if (document.documentElement.dataset.theme === 'light') {
+                const c = getComputedStyle(document.documentElement)
+                    .getPropertyValue('--secondary-rgb-inverted');
+
+                rgb = "rgb(" + c.split(',').map(v => Number(v) * brightness) + ")";
+            }
+
             ctx.fillStyle = rgb;
             ctx.fillRect(x, y, 1, 1);
         };
