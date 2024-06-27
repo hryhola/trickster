@@ -1,7 +1,14 @@
+import classNames from 'classnames'
+
 import styles from './sidebar.module.scss'
 
-export const Sidebar: React.FC<{ children: React.ReactNode }> = (props) => {
-    return <div className={styles.sidebar}>
+type Props = {
+    children: React.ReactNode,
+    className?: string
+}
+
+export const Sidebar: React.FC<Props> = (props) => {
+    return <div className={classNames(styles.sidebar, props.className)}>
         {props.children}
     </div>
 }

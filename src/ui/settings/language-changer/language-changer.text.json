@@ -1,0 +1,14 @@
+{
+    "label": {
+        "eng": "Language: ",
+        "ukr": "Мова: "
+    },
+    "ukr": {
+        "eng": "Українська",
+        "ukr": "Українська"
+    },
+    "eng": {
+        "eng": "English",
+        "ukr": "English"
+    }
+}

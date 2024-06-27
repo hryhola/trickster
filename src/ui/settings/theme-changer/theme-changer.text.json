@@ -1,0 +1,14 @@
+{
+    "label": {
+        "eng": "Color: ",
+        "ukr": "Колір: "
+    },
+    "light": {
+        "eng": "Light",
+        "ukr": "Світлий"
+    },
+    "dark": {
+        "eng": "Dark",
+        "ukr": "Темний"
+    }
+}

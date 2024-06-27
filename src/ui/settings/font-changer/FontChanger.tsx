@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Dropdown } from "../../inputs/dropdown/Dropdown"
 import WebFont from 'webfontloader'
+import text from './font-change.text.json'
+import { LanguageContext } from "../language-changer/LanguageContext"
 
 type FontType = 'normal' | 'silly' | 'retro' | 'fancy' | 'orthodox'
 
@@ -9,10 +11,11 @@ const MAPPING: Record<FontType, string> = {
     retro: 'Handjet',
     silly: 'Balsamiq Sans',
     fancy: 'Gabriela',
-    orthodox: 'UstavHand'
+    orthodox: 'Cyrillic Old a'
 }
 
 export const FontChanger = () => {
+    const { language } = useContext(LanguageContext)
     const [current, setCurrent] = useState<FontType>('normal');
 
     useEffect(() => {
@@ -40,23 +43,17 @@ export const FontChanger = () => {
         } else {
             document.documentElement.style.fontSize = '';
         }
-
-        if (current === 'orthodox') {
-            document.documentElement.style.lineHeight = '1.6em'
-        } else {
-            document.documentElement.style.lineHeight = ''
-        }
     }, [current]);
 
     return <Dropdown
-        label="Font:"
+        label={text.label[language]}
         align="right"
         options={[
-            { id: 'silly', displayValue: 'Silly' },
-            { id: 'normal', displayValue: 'Normal' },
-            { id: 'retro', displayValue: 'Retro' },
-            { id: 'fancy', displayValue: 'Fancy' },
-            { id: 'orthodox', displayValue: 'Orthodox' }
+            { id: 'silly', displayValue: text.silly[language] },
+            { id: 'retro', displayValue: text.retro[language] },
+            { id: 'fancy', displayValue: text.fancy[language] },
+            { id: 'orthodox', displayValue: text.orthodox[language] },
+            { id: 'normal', displayValue: text.normal[language] },
         ]}
         onSelect={(id) => {
             setCurrent(id as FontType);

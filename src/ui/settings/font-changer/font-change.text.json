@@ -1,0 +1,26 @@
+{
+    "label": {
+        "eng": "Font: ",
+        "ukr": "Шрифт: "
+    },
+    "silly": {
+        "eng": "Silly",
+        "ukr": "Дурненький"
+    },
+    "normal": {
+        "eng": "Ordinary",
+        "ukr": "Звичайний"
+    },
+    "retro": {
+        "eng": "Retro",
+        "ukr": "Ретро"
+    },
+    "fancy": {
+        "eng": "Fancy",
+        "ukr": "Модний"
+    },
+    "orthodox": {
+        "eng": "Orthodox",
+        "ukr": "Православний"
+    }
+}
