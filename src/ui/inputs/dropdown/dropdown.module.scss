@@ -17,16 +17,12 @@
     &_current {
         cursor: pointer;
         transition: 0.1s;
-    
-        filter: drop-shadow(0 0 6px var(--background));
-        svg {
-            filter: drop-shadow(0 0 2px var(--background));
-        }
+
 
         &:hover {
-            filter: drop-shadow(0 0 6px var(--secondary));
+            filter: drop-shadow(0 0 1px var(--secondary));
             svg {
-                filter: drop-shadow(0 0 2px var(--secondary));
+                filter: drop-shadow(0 0 1px var(--secondary));
             }
         }
     }
@@ -63,8 +59,6 @@
     }
 
     &_option {
-        
-
         cursor: pointer;
 
         transition: 0.15s;

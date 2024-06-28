@@ -1,25 +1,35 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './dropdown.module.scss';
 import { DownArrow } from '../../svg/DownArrow';
-import { useOutsideClick } from '../../hooks/useOutsideClick';
+import { useOnClickOutside } from 'usehooks-ts'
 
 export interface DropdownProps {
     label?: string
     align?: 'right'
+    initial?: string
     options: { id: string; displayValue: string }[],
     onSelect?: (id: string) => void
 }
 
 export const Dropdown = (props: DropdownProps) => {
-    const [selectedId, setSelectedId] = useState(props.options[0].id)
+    const isChanged = useRef(false);
+    const [selectedId, setSelectedId] = useState(props.initial || props.options[0].id)
     const [isOpen, setIsOpen] = useState(false)
     const ref = useRef<HTMLDivElement>(null)
 
-    useOutsideClick([ref], () => {
-        setIsOpen(false);
+    useOnClickOutside(ref, () => {
+        setTimeout(() => setIsOpen(false), 50)
     });
 
     useEffect(() => {
+        const initial = props.initial || props.options[0].id;
+
+        if (!isChanged.current && selectedId === initial) {
+            return
+        } else if (!isChanged.current && selectedId !== initial) {
+            isChanged.current = true
+        }
+
         if (props.onSelect) props.onSelect(selectedId)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedId])
@@ -41,7 +51,7 @@ export const Dropdown = (props: DropdownProps) => {
 
 
     return <div className={styles.dropdown} data-is-open={isOpen} data-align={props.align || 'left'} ref={ref}>
-        <div className={styles.dropdown_current} onClick={() => setIsOpen((prev) => !prev)}>
+        <div className={styles.dropdown_current} onClick={() => setIsOpen(true)}>
             {props.align === 'right' ? (<><DownArrow width='11px' height='11px' fill='var(--text)' />&nbsp;</>) : ''}
             {props.label ? props.label + ' ' : ''}{selectedOption.displayValue}
             {props.align !== 'right' ? (<>&nbsp;<DownArrow width='11px' height='11px' fill='var(--text)' /></>) : ''}

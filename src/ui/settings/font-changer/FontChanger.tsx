@@ -1,8 +1,9 @@
-import { useContext, useEffect, useState } from "react"
-import { Dropdown } from "../../inputs/dropdown/Dropdown"
+import { useEffect } from "react"
+import { useLocalStorage } from "usehooks-ts"
 import WebFont from 'webfontloader'
+import { Dropdown } from "../../inputs/dropdown/Dropdown"
 import text from './font-change.text.json'
-import { LanguageContext } from "../language-changer/LanguageContext"
+import { useLanguage } from "../language-changer/LanguageChanger"
 
 type FontType = 'normal' | 'silly' | 'retro' | 'fancy' | 'orthodox'
 
@@ -15,16 +16,16 @@ const MAPPING: Record<FontType, string> = {
 }
 
 export const FontChanger = () => {
-    const { language } = useContext(LanguageContext)
-    const [current, setCurrent] = useState<FontType>('normal');
+    const [ language ] = useLanguage()
+    const [current, setCurrent] = useLocalStorage<FontType>('font', 'normal')
 
-    useEffect(() => {
-        const fontName= MAPPING[current];
+    function load(font: FontType) {
+        const fontName= MAPPING[font];
 
-        if (current === 'orthodox') {
+        if (font === 'orthodox') {
             WebFont.load({
                 custom: {
-                    families: [fontName],
+                    families: [font],
                     urls: ['/trickster/fonts/fonts.css']
                   }
             });
@@ -38,11 +39,15 @@ export const FontChanger = () => {
 
         document.documentElement.style.fontFamily = fontName;
 
-        if (current === 'retro') {
+        if (font === 'retro') {
             document.documentElement.style.fontSize = '1.3rem';
         } else {
             document.documentElement.style.fontSize = '';
         }
+    }
+
+    useEffect(() => {
+        load(current)
     }, [current]);
 
     return <Dropdown
@@ -55,8 +60,7 @@ export const FontChanger = () => {
             { id: 'orthodox', displayValue: text.orthodox[language] },
             { id: 'normal', displayValue: text.normal[language] },
         ]}
-        onSelect={(id) => {
-            setCurrent(id as FontType);
-        }}
+        initial={current}
+        onSelect={(id) =>  setCurrent(() => id as FontType)}
     />
 }

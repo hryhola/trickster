@@ -1,10 +1,18 @@
-import { useContext } from "react"
+import { useEffect } from "react"
 import { Dropdown } from "../../inputs/dropdown/Dropdown"
-import { LanguageContext } from "../language-changer/LanguageContext"
+import { useLocalStorage } from "usehooks-ts"
+import { useLanguage } from "../language-changer/LanguageChanger"
 import text from './theme-changer.text.json'
 
+type Theme = 'light' | 'dark'
+
 export const ThemeChanger = () => {
-    const { language } = useContext(LanguageContext)
+    const [ language ] = useLanguage()
+    const [current, setCurrent] = useLocalStorage<Theme>('color', 'dark')
+
+    useEffect(() => {
+        document.documentElement.dataset.theme = current
+    }, [current])
 
     return <Dropdown
         label={text.label[language]}
@@ -13,8 +21,7 @@ export const ThemeChanger = () => {
             { id: 'dark', displayValue: text.dark[language] },
             { id: 'light', displayValue: text.light[language] }
         ]}
-        onSelect={(id) => {
-            document.documentElement.dataset.theme = id
-        }}
+        initial={current}
+        onSelect={(id) => setCurrent(id as Theme)}
     />
 }
