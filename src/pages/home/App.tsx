@@ -2,11 +2,11 @@ import { useState } from 'react'
 import { Sidebar } from '../../ui/layout/sidebar/Sidebar'
 import { FontChanger } from '../../ui/settings/font-changer/FontChanger'
 import { ThemeChanger } from '../../ui/settings/theme-changer/ThemeChanger'
-import styles from './home.page.module.scss'
 import { Language, LanguageContext } from '../../ui/settings/language-changer/LanguageContext'
 import { LanguageChanger } from '../../ui/settings/language-changer/LanguageChanger'
+import styles from './app.page.module.scss'
 
-export const HomePage = () => {
+export const AppPage = () => {
   const [language, setLanguage] = useState<Language>('eng')
 
   return (
