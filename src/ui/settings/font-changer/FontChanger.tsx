@@ -9,7 +9,7 @@ type FontType = 'normal' | 'silly' | 'retro' | 'fancy' | 'orthodox'
 const MAPPING: Record<FontType, string> = {
     normal: 'Inter',
     retro: 'Handjet',
-    silly: 'Balsamiq Sans',
+    silly: 'Shantell Sans',
     fancy: 'Gabriela',
     orthodox: 'Cyrillic Old a'
 }
