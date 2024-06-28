@@ -1,13 +1,16 @@
 :root {
     --backcloth: #000000;
     --background: #0A000C;
+    --background-rgb: 10, 0, 12;
 
     --text: #f4f4f4;
+    --text-rgb: rgb244, 244, 244;
     --text-accent: #ffffff;
 
     --primary: #561498;
     --primary-rgb: 86, 20, 152;
-    --secondary: rgb(191, 59, 163);
+    --secondary: #bf3ba3;
+    --secondary-rgb: 191, 59, 163;
     --secondary-rgb-inverted: 64, 196, 92;
 
     z-index: 2;
@@ -16,6 +19,7 @@
 :root[data-theme="light"] {
     --backcloth: #ffffff;
     --background: #f4f4f4;
+    --background-rgb: 244, 244, 244;
 
     --text: #0A000C;
     --text-accent: #000000;

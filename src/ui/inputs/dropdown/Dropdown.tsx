@@ -18,7 +18,7 @@ export const Dropdown = (props: DropdownProps) => {
     const ref = useRef<HTMLDivElement>(null)
 
     useOnClickOutside(ref, () => {
-        setTimeout(() => setIsOpen(false), 50)
+        setTimeout(() => setIsOpen(false), 200)
     });
 
     useEffect(() => {

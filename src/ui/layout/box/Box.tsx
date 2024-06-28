@@ -1,9 +1,14 @@
-import React from 'react'
+import classNames from 'classnames'
 
-type Props = {}
+import styles from './box.module.scss'
 
-const Box = (props: Props) => {
-  return (
-    <div>Box</div>
-  )
+type Props = {
+    children: React.ReactNode,
+    className?: string
+}
+
+export const Box: React.FC<Props> = (props) => {
+    return <div className={classNames(styles.box, props.className)}>
+        {props.children}
+    </div>
 }
