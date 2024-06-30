@@ -1,4 +1,4 @@
-import { Dropdown } from "../../inputs/dropdown/Dropdown"
+import { Dropdown } from "../../../ui/inputs/dropdown/Dropdown"
 import { useLocalStorage } from "usehooks-ts"
 import text from './language-changer.text.json'
 

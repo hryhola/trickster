@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 
-import { AppPage } from './pages/home/App'; 
+import { App } from '#features/index'; 
+import { AnimatedBackground } from '#ui/layout';
 
-import './ui/global.scss';
-import { AnimatedBackground } from './ui/layout/animated-background/AnimatedBackground';
+import '#ui/global.scss';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <AnimatedBackground type='stars' />
-    <AppPage />
+    <App />
   </React.StrictMode>
 );
 

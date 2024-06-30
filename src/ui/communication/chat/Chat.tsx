@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { TextField } from "../text-field/TextField"
+import { TextField } from "#ui/inputs"
 import styles from './chat.module.scss'
 
 export const Chat = () => {

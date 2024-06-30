@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import styles from './dropdown.module.scss';
-import { DownArrow } from '../../svg/DownArrow';
 import { useOnClickOutside } from 'usehooks-ts'
+import { DownArrow } from '#ui/svg';
+import styles from './dropdown.module.scss';
 
 export interface DropdownProps {
     label?: string

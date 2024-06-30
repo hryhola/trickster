@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useLocalStorage } from "usehooks-ts"
 import WebFont from 'webfontloader'
-import { Dropdown } from "../../inputs/dropdown/Dropdown"
+import { Dropdown } from "../../../ui/inputs/dropdown/Dropdown"
 import text from './font-change.text.json'
 import { useLanguage } from "../language-changer/LanguageChanger"
 
