@@ -8,7 +8,7 @@ export const App = () => {
         <div className={styles.wrapper}>
             <div className={styles.main}>Hello, world!</div>
             <Sidebar>
-                <Box>
+                <Box className={styles.chat}>
                     <Chat />
                 </Box>
                 <ThemeChanger />

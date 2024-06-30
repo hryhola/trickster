@@ -37,6 +37,7 @@
 :root[data-theme='light'] ::-moz-selection {
     color: var(--backcloth);
 }
+
 :root[data-theme='light'] ::selection {
     color: var(--backcloth);
 }
@@ -55,20 +56,33 @@ body {
     width: 100vw;
 
     background: var(--backcloth);
-    background: radial-gradient(
-        circle,
-        var(--primary) 0%,
-        var(--backcloth) 100%
-    );
+    background: radial-gradient(circle,
+            var(--primary) 0%,
+            var(--backcloth) 100%);
 
     :root[data-theme='light'] & {
-        background: radial-gradient(
-            circle,
-            var(--backcloth) 10%,
-            var(--primary) 100%
-        );
+        background: radial-gradient(circle,
+                var(--backcloth) 10%,
+                var(--primary) 100%);
     }
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: none;
+    background-color: rgba(var(--secondary-rgb), 0.5);
 }

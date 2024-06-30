@@ -1,7 +1,133 @@
-.messages-wrapper {
-    height: 200px;
-    max-height: 600px;
-    overflow-y: scroll;
+.chat {
+    display: flex;
+    flex-flow: column;
+    max-height: 100%;
+}
+
+.messages {
+    flex-grow: 1;
+    max-height: 100%;
+
+    overflow-y: auto;
+
     display: flex;
     flex-direction: column-reverse;
+
+    margin-bottom: 0.5rem;
+
+    transition: 1s;
+
+    --fade: 100%;
+
+    mask: linear-gradient(to top, white var(--fade), transparent), linear-gradient(to left, black 5px, transparent 6px);
+
+    &[data-scroll="true"] {
+        animation-name: fade-in;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+}
+
+@keyframes fade-in {
+   0% { --fade: 100%; }
+   1% { --fade: 99.65%; }
+   2% { --fade: 99.30%; }
+   3% { --fade: 98.95%; }
+   4% { --fade: 98.60%; }
+   5% { --fade: 98.25%; }
+   6% { --fade: 97.90%; }
+   7% { --fade: 97.55%; }
+   8% { --fade: 97.20%; }
+   9% { --fade: 96.85%; }
+   10% { --fade: 96.50%; }
+   11% { --fade: 96.15%; }
+   12% { --fade: 95.80%; }
+   13% { --fade: 95.45%; }
+   14% { --fade: 95.10%; }
+   15% { --fade: 94.75%; }
+   16% { --fade: 94.40%; }
+   17% { --fade: 94.05%; }
+   18% { --fade: 93.70%; }
+   19% { --fade: 93.35%; }
+   20% { --fade: 93.00%; }
+   21% { --fade: 92.65%; }
+   22% { --fade: 92.30%; }
+   23% { --fade: 91.95%; }
+   24% { --fade: 91.60%; }
+   25% { --fade: 91.25%; }
+   26% { --fade: 90.90%; }
+   27% { --fade: 90.55%; }
+   28% { --fade: 90.20%; }
+   29% { --fade: 89.85%; }
+   30% { --fade: 89.50%; }
+   31% { --fade: 89.15%; }
+   32% { --fade: 88.80%; }
+   33% { --fade: 88.45%; }
+   34% { --fade: 88.10%; }
+   35% { --fade: 87.75%; }
+   36% { --fade: 87.40%; }
+   37% { --fade: 87.05%; }
+   38% { --fade: 86.70%; }
+   39% { --fade: 86.35%; }
+   40% { --fade: 86.00%; }
+   41% { --fade: 85.65%; }
+   42% { --fade: 85.30%; }
+   43% { --fade: 84.95%; }
+   44% { --fade: 84.60%; }
+   45% { --fade: 84.25%; }
+   46% { --fade: 83.90%; }
+   47% { --fade: 83.55%; }
+   48% { --fade: 83.20%; }
+   49% { --fade: 82.85%; }
+   50% { --fade: 82.50%; }
+   51% { --fade: 82.15%; }
+   52% { --fade: 81.80%; }
+   53% { --fade: 81.45%; }
+   54% { --fade: 81.10%; }
+   55% { --fade: 80.75%; }
+   56% { --fade: 80.40%; }
+   57% { --fade: 80.05%; }
+   58% { --fade: 79.70%; }
+   59% { --fade: 79.35%; }
+   60% { --fade: 79.00%; }
+   61% { --fade: 78.65%; }
+   62% { --fade: 78.30%; }
+   63% { --fade: 77.95%; }
+   64% { --fade: 77.60%; }
+   65% { --fade: 77.25%; }
+   66% { --fade: 76.90%; }
+   67% { --fade: 76.55%; }
+   68% { --fade: 76.20%; }
+   69% { --fade: 75.85%; }
+   70% { --fade: 75.50%; }
+   71% { --fade: 75.15%; }
+   72% { --fade: 74.80%; }
+   73% { --fade: 74.45%; }
+   74% { --fade: 74.10%; }
+   75% { --fade: 73.75%; }
+   76% { --fade: 73.40%; }
+   77% { --fade: 73.05%; }
+   78% { --fade: 72.70%; }
+   79% { --fade: 72.35%; }
+   80% { --fade: 72.00%; }
+   81% { --fade: 71.65%; }
+   82% { --fade: 71.30%; }
+   83% { --fade: 70.95%; }
+   84% { --fade: 70.60%; }
+   85% { --fade: 70.25%; }
+   86% { --fade: 69.90%; }
+   87% { --fade: 69.55%; }
+   88% { --fade: 69.20%; }
+   89% { --fade: 68.85%; }
+   90% { --fade: 68.50%; }
+   91% { --fade: 68.15%; }
+   92% { --fade: 67.80%; }
+   93% { --fade: 67.45%; }
+   94% { --fade: 67.10%; }
+   95% { --fade: 66.75%; }
+   96% { --fade: 66.40%; }
+   97% { --fade: 66.05%; }
+   98% { --fade: 65.70%; }
+   99% { --fade: 65.35%; }
+   100% { --fade: 65%; }
 }
