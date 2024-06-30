@@ -1,23 +1,22 @@
 @keyframes spin {
     from {
-        transform:rotate(0deg);
+        transform: rotate(0deg);
     }
     to {
-        transform:rotate(360deg);
+        transform: rotate(360deg);
     }
 }
 
 .dropdown {
     white-space: nowrap;
 
-    &[data-align="right"] {
+    &[data-align='right'] {
         text-align: right;
     }
 
     &_current {
         cursor: pointer;
         transition: 0.1s;
-
 
         &:hover {
             filter: drop-shadow(0 0 1px var(--secondary));
@@ -27,30 +26,29 @@
         }
     }
 
-    &[data-is-open="true"] &_current {
+    &[data-is-open='true'] &_current {
         opacity: 0.5;
         cursor: default;
     }
 
-    &[data-is-open="true"] &_current svg {
+    &[data-is-open='true'] &_current svg {
         animation-name: spin;
         animation-duration: 1000ms;
         animation-iteration-count: infinite;
-        animation-timing-function: linear; 
+        animation-timing-function: linear;
     }
 
     &_options_wrapper {
         display: grid;
         grid-template-rows: 0fr;
         transition: grid-template-rows 0.2s ease-out;
-
     }
 
-    &[data-align="right"] &_options_wrapper {
+    &[data-align='right'] &_options_wrapper {
         justify-content: end;
     }
 
-    &[data-is-open="true"] &_options_wrapper {
+    &[data-is-open='true'] &_options_wrapper {
         grid-template-rows: 1fr;
     }
 
@@ -64,7 +62,7 @@
         transition: 0.15s;
 
         &:hover {
-            color: var(--secondary)
+            color: var(--secondary);
         }
     }
 }

@@ -1,7 +1,10 @@
 import { useRef } from 'react'
 import styles from './text-field.module.scss'
 
-type Props = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
+type Props = React.DetailedHTMLProps<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+> & {
     onEnter?: (text: string, clear: () => void) => void
 }
 
@@ -16,5 +19,13 @@ export const TextField: React.FC<Props> = (props) => {
         }
     }
 
-    return <input ref={ref} type="text" className={styles.input} placeholder={props.placeholder} onKeyDown={onKeyDown} />
+    return (
+        <input
+            ref={ref}
+            type="text"
+            className={styles.input}
+            placeholder={props.placeholder}
+            onKeyDown={onKeyDown}
+        />
+    )
 }

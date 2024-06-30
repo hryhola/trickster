@@ -17,18 +17,26 @@
 
     z-index: 0;
 
-    :root[data-theme="light"] & {
-        filter: invert(1)
+    :root[data-theme='light'] & {
+        filter: invert(1);
     }
 }
 
 .gradient {
     position: absolute;
     background: var(--backcloth);
-    background: radial-gradient(circle, var(--primary) 0%, var(--backcloth) 100%);
+    background: radial-gradient(
+        circle,
+        var(--primary) 0%,
+        var(--backcloth) 100%
+    );
 
-    :root[data-theme="light"] & {
-        background: radial-gradient(circle, var(--backcloth) 10%, rgba(var(--primary-rgb), 0.15) 100%);
+    :root[data-theme='light'] & {
+        background: radial-gradient(
+            circle,
+            var(--backcloth) 10%,
+            rgba(var(--primary-rgb), 0.15) 100%
+        );
     }
 
     width: 100vw;
@@ -37,7 +45,7 @@
 
     mix-blend-mode: screen;
 
-    :root[data-theme="light"] & {
+    :root[data-theme='light'] & {
         mix-blend-mode: multiply;
     }
 }

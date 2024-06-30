@@ -1,6 +1,6 @@
 :root {
     --backcloth: #000000;
-    --background: #0A000C;
+    --background: #0a000c;
     --background-rgb: 10, 0, 12;
 
     --text: #f4f4f4;
@@ -16,12 +16,12 @@
     z-index: 2;
 }
 
-:root[data-theme="light"] {
+:root[data-theme='light'] {
     --backcloth: #ffffff;
     --background: #f4f4f4;
     --background-rgb: 244, 244, 244;
 
-    --text: #0A000C;
+    --text: #0a000c;
     --text-accent: #000000;
 }
 
@@ -34,8 +34,12 @@
     background: var(--secondary);
 }
 
-:root[data-theme="light"] ::-moz-selection { color: var(--backcloth) }
-:root[data-theme="light"] ::selection { color: var(--backcloth) }
+:root[data-theme='light'] ::-moz-selection {
+    color: var(--backcloth);
+}
+:root[data-theme='light'] ::selection {
+    color: var(--backcloth);
+}
 
 * {
     box-sizing: border-box;
@@ -51,11 +55,18 @@ body {
     width: 100vw;
 
     background: var(--backcloth);
-    background: radial-gradient(circle, var(--primary) 0%, var(--backcloth) 100%);
+    background: radial-gradient(
+        circle,
+        var(--primary) 0%,
+        var(--backcloth) 100%
+    );
 
-
-    :root[data-theme="light"] & {
-        background: radial-gradient(circle, var(--backcloth) 10%, var(--primary) 100%);
+    :root[data-theme='light'] & {
+        background: radial-gradient(
+            circle,
+            var(--backcloth) 10%,
+            var(--primary) 100%
+        );
     }
 
     -webkit-font-smoothing: antialiased;
