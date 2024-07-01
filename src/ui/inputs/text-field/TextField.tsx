@@ -6,26 +6,32 @@ type Props = React.DetailedHTMLProps<
     HTMLInputElement
 > & {
     onEnter?: (text: string, clear: () => void) => void
+    button?: JSX.Element
 }
 
-export const TextField: React.FC<Props> = (props) => {
+export const TextField: React.FC<Props> = ({
+    onEnter,
+    button,
+    ...rest
+}) => {
     const ref = useRef<HTMLInputElement>(null)
 
     const onKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
-        if (e.key === 'Enter' && props.onEnter && ref.current) {
-            props.onEnter(ref.current.value, () => {
+        if (e.key === 'Enter' && onEnter && ref.current) {
+            onEnter(ref.current.value, () => {
                 if (ref.current) ref.current.value = ''
             })
         }
     }
 
-    return (
+    return (<>
         <input
             ref={ref}
             type="text"
             className={styles.input}
-            placeholder={props.placeholder}
             onKeyDown={onKeyDown}
+            {...rest}
         />
-    )
+        {button ? button : <></>}
+    </>)
 }
